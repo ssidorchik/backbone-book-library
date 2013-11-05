@@ -9,10 +9,12 @@ var app = app || {};
 
 		initialize: function(initialBooks) {
 			this.collection = new app.Library(initialBooks);
-
-			this.listenTo(this.collection, 'add', this.renderBook);
+			this.colleciton.fetch({ reset: true });
 
 			this.render();
+
+			this.listenTo(this.collection, 'add', this.renderBook);
+			this.listenTo(this.colleciton, 'reset', this.render);
 		},
 
 		render: function() {

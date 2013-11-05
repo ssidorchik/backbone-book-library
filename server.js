@@ -7,10 +7,15 @@ var application_root = __dirname,
 //Setup db connection
 mongoose.connect('mongodb://localhost/library_database');
 
+var Keywords = new mongoose.Schema({
+	keyword: String
+});
+
 var Book = new mongoose.Schema({
 	title: String,
 	author: String,
-	releaseDate: Date
+	releaseDate: Date,
+	keywords: [Keywords]
 });
 
 var BookModel = mongoose.model('Book', Book);
@@ -44,7 +49,8 @@ app.post('/api/books', function(req, res) {
 	var book = new BookModel({
 		title: req.body.title,
 		author: req.body.author,
-		releaseDate: req.body.releaseDate
+		releaseDate: req.body.releaseDate,
+		keywords: req.body.keywords
 	});
 	book.save(function(err) {
 		if(!err) {
@@ -71,6 +77,7 @@ app.put('/api/books/:id', function(req, res) {
 		book.title = req.body.title;
 		book.author = req.body.author;
 		book.releaseDate = req.body.releaseDate;
+		book.keywords = req.body.keywords;
 
 		return book.save(function(err) {
 			if(!err) {
