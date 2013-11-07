@@ -1,7 +1,7 @@
 var application_root = __dirname,
 	express = require('express'),
 	path = require('path'),
-	db = require('./database');
+	db = require('./db/schema');
 
 var app = express();
 app.configure(function() {

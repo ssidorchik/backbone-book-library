@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 				command: 'mongo library_database --eval "db.dropDatabase()"'
 			},
 			seed_db: {
-				command: 'mongoimport --db library_database --collection books  --type json --file books.json --jsonArray'
+				command: 'mongoimport --db library_database --collection books  --type json --file db/seeds.json --jsonArray'
 			}
 		}
 	});
