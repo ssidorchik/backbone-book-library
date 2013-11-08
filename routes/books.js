@@ -62,7 +62,7 @@ module.exports = function(app, db) {
 			return book.remove(function(err) {
 				if(!err) {
 					console.log('Book removed'); 
-					return response.send('');
+					return res.send('');
 				} else {
 					console.log(err);
 				}
