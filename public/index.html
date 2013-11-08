@@ -28,7 +28,7 @@
 			<ul>
 				<li><%= title %></li>
 				<li><%= author %></li>
-				<li><%= releaseDate %></li>
+				<li><%= moment(releaseDate).format("MMMM YYYY") %></li>
 				<li><%= keywords %></li>
 			</ul>
 			<button class="delete">Delete</button>
@@ -37,6 +37,7 @@
 		<script src="bower_components/jquery/jquery.js"></script>
 		<script src="bower_components/underscore/underscore.js"></script>
 		<script src="bower_components/backbone/backbone.js"></script>
+		<script src="bower_components/momentjs/moment.js"></script>
 		<script src="js/models/book.js"></script>
 		<script src="js/collections/library.js"></script>
 		<script src="js/views/book.js"></script>
